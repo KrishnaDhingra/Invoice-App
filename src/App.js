@@ -8,7 +8,7 @@ function App() {
     <div className="h-screen w-full bg-skin-bodyBg flex  justify-center items-start">
       <Navbar/>
 
-      <div className="mt-32 lg:mt-10 home-inner-container flex justify-center items-center">
+      <div className="mt-32 lg:mt-20 home-inner-container flex justify-center items-center">
         <HomeTop/>
       </div>
     </div>
