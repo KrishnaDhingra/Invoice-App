@@ -8,7 +8,8 @@ module.exports = {
           secondary: 'var(--color-text-secondary)',
           pending: 'var(--color-text-pending)',
           paid: 'var(--color-text-paid)',
-          draft: 'var(--color-text-draft)'
+          draft: 'var(--color-text-draft)',
+          purple: 'var(--color-logo-bg)'
         }
       },
       backgroundColor: {
@@ -17,6 +18,7 @@ module.exports = {
           navbarBg: 'var(--color-navbar-bg)',
           dataBar: 'var(--color-data-bar-bg)',
           dropdownBg: 'var(--color-dropdown-bg)',
+          invoiceBg:'var(--color-invoice-input-bg)',
           bodyBg: 'var(--color-body-bg)',
           almostBlack: 'var(--color-black-bg)',
           danger: 'var(--color-danger-bg)'

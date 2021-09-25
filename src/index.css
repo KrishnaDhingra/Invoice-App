@@ -7,6 +7,7 @@
 body {
   margin: 0;
   font-family: 'Spartan', sans-serif;
+  overflow-y: hidden;
 }
 
 @layer base{
@@ -32,6 +33,7 @@ body {
     --color-text-draft: #373B53;
     --color-logo-bg: #9277FF;
     --color-navbar-bg: #1E2139;
+    --color-invoice-input-bg: #FFFFFF;
     --color-data-bar-bg: #FFFFFF;
     --color-dropdown-bg: #FFFFFF;
     --color-body-bg: #F8F8FB;
@@ -46,6 +48,7 @@ body {
     --color-text-draft: #DFE3FA;
     --color-logo-bg: #9277FF;
     --color-navbar-bg: #1E2139;
+    --color-invoice-input-bg: #141625;
     --color-data-bar-bg: #1E2139;
     --color-dropdown-bg: #252945;
     --color-body-bg: #141625;
@@ -54,9 +57,31 @@ body {
   }
 }
 
-.home-inner-container{
-  width: 770px;
-
+.invoice-container::-webkit-scrollbar {
+  width: 0.7em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #9277FF;
+  outline: 1px solid slategrey;
 }
 
+
+.home-inner-container{
+  width: calc(100vw - 7rem);
+}
+.home-center{
+  width: 770px;
+}
+input{
+  font-size: 13px;
+  border: 1.5px solid #141625; 
+}
+input:focus{
+  border: 1.5px solid #9277FF;
+}
 

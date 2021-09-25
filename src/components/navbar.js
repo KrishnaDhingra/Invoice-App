@@ -4,7 +4,7 @@ import { HiSun, HiMoon } from "react-icons/hi";
 
 export let Navbar = () => {
     return (
-        <div className="absolute flex lg:flex-col justify-between items-center lg:left-0 top-0 lg:rounded-r-3xl h-20 lg:h-screen w-full lg:w-28 bg-skin-navbarBg">
+        <div className="z-10 absolute flex lg:flex-col justify-between items-center lg:left-0 top-0 lg:rounded-r-3xl h-20 lg:h-screen w-full lg:w-28 bg-skin-navbarBg">
 
             <div className="flex justify-center items-center h-full w-20 lg:h-28 lg:w-full rounded-r-3xl bg-skin-logoBg">
                 <div className="bg-white h-8 w-8 lg:h-10 lg:w-10 rounded-full"></div>

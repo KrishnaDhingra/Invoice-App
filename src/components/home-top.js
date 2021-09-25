@@ -1,11 +1,11 @@
 import React from 'react'
-import { SecondaryText, SecondaryBold } from './basic-components.js'
+import { SecondaryText, SecondaryBold, BigHeadings } from './basic-components.js'
 
 export let HomeTop = () => {
     return (
         <div className="w-full flex justify-between items-center">
             <div className="flex flex-col gap-2">
-                <h1 className="font-bold text-3xl text-skin-primary">Invoices</h1>
+                <BigHeadings text={'Invoices'}/>
 
                 <SecondaryText text={'There are 1 total invoice'}/>
             </div>
