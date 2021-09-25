@@ -3,9 +3,22 @@ import { motion } from 'framer-motion'
 import { SecondaryText, SecondaryBold, BigHeadings, Heading } from './basic-components.js'
 
 
-export const InvoceInput = () => {
+export const InvoceInput = (props) => {
     return(
-        <div className="invoice-container z-0 theme-dark absolute h-full flex flex-col gap-5 rounded-r-3xl items-start justify-start ml-10 max-w-3xl w-3/4 bg-skin-navbarBg pl-32 pt-12 overflow-y-auto">
+        <motion.div 
+            className="invoice-container z-0 theme-dark absolute h-full flex flex-col gap-5 rounded-r-3xl items-start justify-start ml-10 max-w-3xl w-3/4 bg-skin-navbarBg pl-32 pt-12 overflow-y-auto"
+
+            initial={{
+                x: "-80vw"
+            }}
+            animate={{
+                x: props.position,
+                transition:{
+                    type: "spring",
+                    stiffness: 50,
+                }
+            }}
+        >
 
             <Heading text={'Create Invoice'}/>
             <PurpleText text={'Bill From'}/>
@@ -109,7 +122,7 @@ export const InvoceInput = () => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 
