@@ -1,5 +1,5 @@
 import React from 'react'
-import { SecondaryBold, SecondaryText, NameText, Heading, PendingText, PaidText, DraftText } from './basic-components.js'
+import { SecondaryBold, SecondaryText, NameText, Heading, PendingText, PaidText, DraftText, PendingBox, PaidBox, DraftBox, RightArrow } from './basic-components.js'
 import { motion } from 'framer-motion'
 
 export const TodoBarContainer = () => {
@@ -20,7 +20,7 @@ export const TodoBarContainer = () => {
     }
     return (
         <motion.div 
-            className="m-20 theme-light w-full flex flex-col gap-5 justify-start items-center"
+            className="mt-20 mb-10 theme-light w-full flex flex-col gap-5 justify-start items-center"
             variants={container}
             initial="hidden"
             animate="show"
@@ -56,9 +56,10 @@ export const TodoBar = () => {
                 <NameText text={'Krishna'}/>
             </div>
 
-            <div className="flex gap-10 items-center">
+            <div className="flex gap-5 items-center">
                 <Heading text={'$1800'}/>
-                <div className="rounded-lg py-2 px-4 text-center bg-skin-pendingBg"><PendingText/></div>
+                <PendingBox/>
+                <RightArrow/>
             </div>
         </motion.div>
 

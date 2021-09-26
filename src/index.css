@@ -14,8 +14,8 @@ body {
   :root {
     --color-text-primary: #ffffff;
     --color-text-secondary: #DFE3FA;
-    --color-text-orange: #FF8F00;
-    --color-text-green: #33D69F;
+    --color-text-pending: #FF8F00;
+    --color-text-paid: #33D69F;
     --color-text-draft: #DFE3FA;
     --color-text-name: #373B53;
     --color-logo-bg: #9277FF;
@@ -51,8 +51,8 @@ body {
   .theme-dark {
     --color-text-primary: #ffffff;
     --color-text-secondary: #DFE3FA;
-    --color-text-orange: #FF8F00;
-    --color-text-green: #33D69F;
+    --color-text-pending: #FF8F00;
+    --color-text-paid: #33D69F;
     --color-text-draft: #DFE3FA;
     --color-text-name: #FFFFFF;
     --color-logo-bg: #9277FF;
@@ -95,5 +95,14 @@ input{
 }
 input:focus{
   border: 1.5px solid #9277FF;
+}
+.pending-box{
+  background-color: rgba(255,143,0,0.1);
+}
+.paid-box{
+  background-color: rgb(51,214,159, 0.1);
+}
+.draft-box{
+  background-color: rgb(223,227,250, 0.1  );
 }
 

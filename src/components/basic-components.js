@@ -1,3 +1,5 @@
+import Arrow from '../assets/right-arrow.png'
+
 export const SecondaryText = (props) => {
     return (
         <span className="font-normal text-xs text-skin-secondary">{props.text}</span>
@@ -38,5 +40,25 @@ export const PaidText = (props) => {
 export const DraftText = (props) => {
     return (
         <span className="tracking-wide text-xs text-skin-draft font-semibold">Draft</span> 
+    )
+}
+export const PendingBox = () => {
+    return (
+        <div className="ml-4 w-24 pending-box rounded py-1.5 px-4 text-center bg-skin-pendingBg"><PendingText/></div>
+    )
+}
+export const PaidBox = () => {
+    return (
+        <div className="ml-4 w-24 paid-box rounded py-1.5 px-4 text-center bg-skin-pendingBg"><PaidText/></div>
+    )
+}
+export const DraftBox = () => {
+    return (
+        <div className="ml-4 w-24 draft-box rounded py-1.5 px-4 text-center bg-skin-pendingBg"><DraftText/></div>
+    )
+}
+export const RightArrow = () => {
+    return (
+        <img src={Arrow} alt="" className="h-2 w-2 transform -rotate-90" />
     )
 }
