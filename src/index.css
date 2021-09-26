@@ -17,6 +17,7 @@ body {
     --color-text-orange: #FF8F00;
     --color-text-green: #33D69F;
     --color-text-draft: #DFE3FA;
+    --color-text-name: #373B53;
     --color-logo-bg: #9277FF;
     --color-navbar-bg: #1E2139;
     --color-data-bar-bg: #1E2139;
@@ -24,6 +25,9 @@ body {
     --color-body-bg: #141625;
     --color-black-bg: #0C0E16;
     --color-danger-bg: #EC5757;
+    --color-orange-bg: #FF8F00;
+    --color-green-bg: #33D69F;
+    --color-draft-bg: #DFE3FA;
   }
   .theme-light {
     --color-text-primary: #0C0E16;
@@ -31,6 +35,7 @@ body {
     --color-text-pending: #FF8F00;
     --color-text-paid: #33D69F;
     --color-text-draft: #373B53;
+    --color-text-name: #888EB0;
     --color-logo-bg: #9277FF;
     --color-navbar-bg: #1E2139;
     --color-invoice-input-bg: #FFFFFF;
@@ -39,6 +44,9 @@ body {
     --color-body-bg: #F8F8FB;
     --color-black-bg: #373B53;
     --color-danger-bg: #EC5757;
+    --color-color-orange: #16FF8F00;
+    --color-color-green: #1633D69F;
+    --color-color-draft: #16DFE3FA;
   }
   .theme-dark {
     --color-text-primary: #ffffff;
@@ -46,6 +54,7 @@ body {
     --color-text-orange: #FF8F00;
     --color-text-green: #33D69F;
     --color-text-draft: #DFE3FA;
+    --color-text-name: #FFFFFF;
     --color-logo-bg: #9277FF;
     --color-navbar-bg: #1E2139;
     --color-invoice-input-bg: #141625;
@@ -54,6 +63,9 @@ body {
     --color-body-bg: #141625;
     --color-black-bg: #0C0E16;
     --color-danger-bg: #EC5757;
+    --color-orange-bg: #26FF8F00;
+    --color-green-bg: #2633D69F;
+    --color-draft-bg: #26DFE3FA;
   }
 }
 

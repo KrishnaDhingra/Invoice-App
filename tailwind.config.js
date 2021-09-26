@@ -9,7 +9,8 @@ module.exports = {
           pending: 'var(--color-text-pending)',
           paid: 'var(--color-text-paid)',
           draft: 'var(--color-text-draft)',
-          purple: 'var(--color-logo-bg)'
+          purple: 'var(--color-logo-bg)',
+          name: 'var(--color-text-name)'
         }
       },
       backgroundColor: {
@@ -21,7 +22,10 @@ module.exports = {
           invoiceBg:'var(--color-invoice-input-bg)',
           bodyBg: 'var(--color-body-bg)',
           almostBlack: 'var(--color-black-bg)',
-          danger: 'var(--color-danger-bg)'
+          danger: 'var(--color-danger-bg)',
+          pendingBg: 'var(--color-orange-bg)',
+          paidBg: 'var(--color-green-bg)',
+          draftBg: 'var(--color-draft-bg)'
         }
       }
     },
