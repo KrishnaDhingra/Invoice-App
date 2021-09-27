@@ -37,17 +37,9 @@ export const TodoBarContainer = () => {
     )
 }
 export const TodoBar = () => {
-    const item = {
-        hidden: { opacity: 0 },
-        show: { opacity: 1 }
-    }
-
     return (
         <motion.div 
             className="rounded-lg theme-dark w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4"
-            variants={item}
-            initial='hidden'
-            animate='show'
 
         >
             <div className="flex gap-7">
