@@ -6,6 +6,9 @@ import { SecondaryText, SecondaryBold, BigHeadings, Heading } from './basic-comp
 export const InvoceInput = (props) => {
     return(
         <motion.div 
+            onClick={(event) => {
+                event.stopPropagation()
+                }}
             className="invoice-container z-0 theme-dark absolute h-full flex flex-col gap-5 rounded-r-3xl items-start justify-start ml-10 max-w-2xl w-3/4 bg-skin-navbarBg pl-32 pt-12 overflow-y-auto"
 
             initial={{
@@ -31,15 +34,15 @@ export const InvoceInput = (props) => {
             <div className="mt-1.5 grid grid-cols-3 gap-7 w-11/12">
 
                 <div className="flex flex-col gap-2">
-                    <SecondaryText text="Street Address"/>      
+                    <SecondaryText text="City"/>      
                     <Input/>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <SecondaryText text="Street Address"/>      
+                    <SecondaryText text="Post Code"/>      
                     <Input/>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <SecondaryText text="Street Address"/>      
+                    <SecondaryText text="Country"/>      
                     <Input/>
                 </div>
 
@@ -48,12 +51,12 @@ export const InvoceInput = (props) => {
             <PurpleText text={'Bill To'}/>
 
             <div className="flex gap-2 flex-col w-11/12">
-                <SecondaryText text="Street Address"/>
+                <SecondaryText text="Client's Name"/>
                 <input className="bg-skin-bodyBg outline-none text-skin-primary font-semibold py-4 px-7 rounded" type="text" />
             </div>
 
             <div className="mt-1.5 flex gap-2 flex-col w-11/12">
-                <SecondaryText text="Street Address"/>
+                <SecondaryText text="Client's Email"/>
                 <input className="bg-skin-bodyBg outline-none text-skin-primary font-semibold py-4 px-7 rounded" type="text" />
             </div>
 
@@ -67,15 +70,15 @@ export const InvoceInput = (props) => {
             <div className="mt-1 grid grid-cols-3 gap-7 w-11/12">
 
                 <div className="flex flex-col gap-2">
-                    <SecondaryText text="Street Address"/>      
+                    <SecondaryText text="City"/>      
                     <Input/>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <SecondaryText text="Street Address"/>      
+                    <SecondaryText text="Post Code"/>      
                     <Input/>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <SecondaryText text="Street Address"/>      
+                    <SecondaryText text="Country"/>      
                     <Input/>
                 </div>
 
@@ -85,7 +88,7 @@ export const InvoceInput = (props) => {
 
 
                 <div className="flex flex-col gap-2">
-                    <SecondaryText text="Invoice Data"/>      
+                    <SecondaryText text="Invoice Date"/>      
                     <input className="bg-skin-bodyBg text-skin-primary rounded px-6 py-4 outline-none text-sm font-semibold" type="date" />
                 </div>
 
@@ -102,7 +105,7 @@ export const InvoceInput = (props) => {
             </div>
 
             <div className="flex gap-2 flex-col w-11/12">
-                <SecondaryText text="Street Address"/>
+                <SecondaryText text="Description"/>
                 <Input/>
 
             </div>
