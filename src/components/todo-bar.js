@@ -7,8 +7,6 @@ export const TodoBarContainer = () => {
 
     let data = MainData
 
-    let {...data, {id:'hello'}} = data
-
     const container = {
         hidden: { opacity: 1 },
         show: {
