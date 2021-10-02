@@ -3,7 +3,7 @@ import { SecondaryBold, SecondaryText, NameText, Heading, PendingText, PaidText,
 import { motion } from 'framer-motion'
 import { MainData } from './data.js'
 
-export const TodoBarContainer = () => {
+export const TodoBarContainer = (props) => {
 
     let data = MainData
 
@@ -35,6 +35,7 @@ export const TodoBarContainer = () => {
                     <motion.div 
                         className="w-full" variants={item}>
                         <TodoBar 
+                            theme={props.theme}
                             id={element.id} 
                             dueDate={element.billTo.invoiceDate} 
                             name={element.billTo.clientName} 
@@ -63,7 +64,7 @@ export const TodoBar = (props) => {
 
     return (
         <motion.div 
-            className="todo-bar rounded-lg theme-light w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4"
+            className={`theme-${props.theme} todo-bar rounded-lg w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4`}
 
         >
             <div className="flex gap-7">

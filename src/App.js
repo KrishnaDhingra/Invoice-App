@@ -6,6 +6,16 @@ import { TodoBarContainer } from './components/todo-bar.js'
 import './index.css'
 
 function App() {
+  const [dark, setDark] = useState('dark')
+
+  let ToggleTheme = () => {
+    if(dark === 'dark'){
+      setDark('light')
+    }else{
+      setDark('dark')
+    }
+    console.log(dark)
+  }
 
   const [ positionVal, setPositionVal ] = useState('-80vw')
 
@@ -18,13 +28,18 @@ function App() {
     console.log("button")
   }
   return (
-    <div className="overflow-y-scroll h-screen w-full theme-light bg-skin-bodyBg flex items-start" onClick={() => {
-      if(positionVal === "0vw"){
-        setPositionVal("-80vw")
-      }
-    }}>
-      <Navbar/>
-      <InvoceInput position={positionVal}/>
+    <div 
+      className={`theme-${dark} overflow-y-scroll h-screen w-full bg-skin-bodyBg flex items-start`}
+      
+      onClick={() => {
+        if(positionVal === "0vw"){
+          setPositionVal("-80vw")
+        }
+      }}
+    >
+      <Navbar ChangeTheme={() => ToggleTheme} theme={dark}/>
+
+      <InvoceInput theme={dark} position={positionVal}/>
 
       <div className="ml-auto flex justify-center home-inner-container">
         <div className="mt-32 lg:mt-20 home-center flex flex-col justify-center items-center">
@@ -32,8 +47,11 @@ function App() {
           <HomeTop onSelect={(event) => {
             ChangePosition()
             event.stopPropagation()
-            }}/>
-          <TodoBarContainer/>
+            }}
+            theme={dark}
+            />
+
+          <TodoBarContainer theme={dark}/>
 
         </div>
       </div>
