@@ -8,7 +8,7 @@ export const SecondaryText = (props) => {
 
 export const SecondaryBold = (props) => {
     return (
-        <span className="tracking-wide text-xs text-skin-primary font-semibold">{props.text}</span> 
+        <span className="tracking-wide text-xs text-skin-primary font-bold">{props.text}</span> 
     )
 }
 export const NameText = (props) => {
@@ -44,17 +44,17 @@ export const DraftText = (props) => {
 }
 export const PendingBox = () => {
     return (
-        <div className="ml-4 w-24 pending-box rounded py-1.5 px-4 text-center bg-skin-pendingBg"><PendingText/></div>
+        <div className="ml-4 w-24 pending-box rounded py-2 px-4 text-center bg-skin-pendingBg"><PendingText/></div>
     )
 }
 export const PaidBox = () => {
     return (
-        <div className="ml-4 w-24 paid-box rounded py-1.5 px-4 text-center bg-skin-pendingBg"><PaidText/></div>
+        <div className="ml-4 w-24 paid-box rounded py-2 px-4 text-center bg-skin-paidBg"><PaidText/></div>
     )
 }
 export const DraftBox = () => {
     return (
-        <div className="ml-4 w-24 draft-box rounded py-1.5 px-4 text-center bg-skin-pendingBg"><DraftText/></div>
+        <div className="ml-4 w-24 draft-box rounded py-2 px-4 text-center bg-skin-draftBg"><DraftText/></div>
     )
 }
 export const RightArrow = () => {

@@ -23,7 +23,7 @@ export const TodoBarContainer = () => {
     }
     return (
         <motion.div 
-            className="mt-20 mb-10 theme-light w-full flex flex-col gap-5 justify-start items-center"
+            className="mt-20 mb-10 w-full flex flex-col gap-5 justify-start items-center"
             variants={container}
             initial="hidden"
             animate="show"
@@ -36,7 +36,7 @@ export const TodoBarContainer = () => {
                         className="w-full" variants={item}>
                         <TodoBar 
                             id={element.id} 
-                            dueData={element.billTo.invoiceDate} 
+                            dueDate={element.billTo.invoiceDate} 
                             name={element.billTo.clientName} 
                             total={element.total} 
                             status={element.status}/>
@@ -63,7 +63,7 @@ export const TodoBar = (props) => {
 
     return (
         <motion.div 
-            className="rounded-lg theme-dark w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4"
+            className="todo-bar rounded-lg theme-light w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4"
 
         >
             <div className="flex gap-7">

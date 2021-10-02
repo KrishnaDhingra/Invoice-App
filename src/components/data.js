@@ -1,7 +1,7 @@
 export const MainData = [
     {
         id: '#XM9141',
-        status: 'draft',
+        status: 'pending',
         total: '$268',
 
         billFrom:{

@@ -18,7 +18,7 @@ function App() {
     console.log("button")
   }
   return (
-    <div className="overflow-y-scroll h-screen w-full bg-skin-bodyBg flex items-start" onClick={() => {
+    <div className="overflow-y-scroll h-screen w-full theme-light bg-skin-bodyBg flex items-start" onClick={() => {
       if(positionVal === "0vw"){
         setPositionVal("-80vw")
       }
