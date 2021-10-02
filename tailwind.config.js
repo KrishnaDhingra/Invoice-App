@@ -2,6 +2,12 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      borderColor: {
+        borderPrimary: 'var(--color-input-border-bg)'
+      },
+      borderWidth: {
+        '2': '1.5px'
+      },
       textColor: {
         skin: {
           primary: 'var(--color-text-primary)',
@@ -25,7 +31,9 @@ module.exports = {
           danger: 'var(--color-danger-bg)',
           pendingBg: 'var(--color-orange-bg)',
           paidBg: 'var(--color-green-bg)',
-          draftBg: 'var(--color-draft-bg)'
+          draftBg: 'var(--color-draft-bg)',
+          inputBg: 'var(--color-input-bg)',
+          invoiceBg: 'var(--color-invoice-bg)'
         }
       }
     },

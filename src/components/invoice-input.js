@@ -10,7 +10,7 @@ export const InvoceInput = (props) => {
                 event.stopPropagation()
                 }}
 
-            className={`theme-${props.theme} invoice-container z-0 absolute h-full flex flex-col gap-5 rounded-r-3xl items-start justify-start ml-10 max-w-2xl w-3/4 bg-skin-bodyBg pl-32 pt-12 overflow-y-auto`}
+            className={`theme-${props.theme} invoice-container z-0 absolute h-full flex flex-col gap-5 rounded-r-3xl items-start justify-start ml-10 max-w-2xl w-3/4 bg-skin-invoiceBg pl-32 pt-12 overflow-y-auto`}
 
             initial={{
                 x: "-80vw"
@@ -29,22 +29,22 @@ export const InvoceInput = (props) => {
 
             <div className="flex flex-col gap-2 w-11/12">
                 <SecondaryText text="Street Address"/>
-                <Input/>
+                <Input type="text"/>
             </div>
 
             <div className="mt-1.5 grid grid-cols-3 gap-7 w-11/12">
 
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="City"/>      
-                    <Input/>
+                    <Input type="text"/>
                 </div>
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Post Code"/>      
-                    <Input/>
+                    <Input type="text"/>
                 </div>
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Country"/>      
-                    <Input/>
+                    <Input type="text"/>
                 </div>
 
             </div>
@@ -53,17 +53,17 @@ export const InvoceInput = (props) => {
 
             <div className="flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Client's Name"/>
-                <input className="bg-skin-bodyBg outline-none text-skin-primary font-semibold py-4 px-7 rounded" type="text" />
+                <Input type="text"/>
             </div>
 
             <div className="mt-1.5 flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Client's Email"/>
-                <input className="bg-skin-bodyBg outline-none text-skin-primary font-semibold py-4 px-7 rounded" type="text" />
+                <Input type="text"/>
             </div>
 
             <div className="mt-1.5 flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Street Address"/>
-                <input className="bg-skin-bodyBg outline-none text-skin-primary font-semibold py-4 px-7 rounded" type="text" />
+                <Input type="text"/>
             </div>
 
 
@@ -72,15 +72,15 @@ export const InvoceInput = (props) => {
 
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="City"/>      
-                    <Input/>
+                    <Input type="text"/>
                 </div>
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Post Code"/>      
-                    <Input/>
+                    <Input type="text"/>
                 </div>
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Country"/>      
-                    <Input/>
+                    <Input type="text"/>
                 </div>
 
             </div>
@@ -90,16 +90,16 @@ export const InvoceInput = (props) => {
 
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Invoice Date"/>      
-                    <input className="bg-skin-bodyBg text-skin-primary rounded px-6 py-4 outline-none text-sm font-semibold" type="date" />
+                    <Input type="date"/>
                 </div>
 
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Payment Terms"/>      
-                    <select className="bg-skin-bodyBg text-skin-primary rounded px-6 py-4 pb-5 outline-none text-sm font-semibold pr-4" id="cars">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                    <select className="bg-skin-inputBg text-skin-primary rounded px-6 py-4 pb-5 outline-none text-sm font-semibold pr-4" id="cars">
+                    <option value="volvo">Net 1 day</option>
+                    <option value="saab">Net 7 days</option>
+                    <option value="opel">Net 14 days</option>
+                    <option value="audi">Net 30 days</option>
                 </select>
                 </div>
 
@@ -107,7 +107,7 @@ export const InvoceInput = (props) => {
 
             <div className="flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Description"/>
-                <Input/>
+                <Input type="text"/>
 
             </div>
 
@@ -137,6 +137,6 @@ export const PurpleText = (props) => {
 }
 export const Input = (props) => {
     return (
-        <input className="bg-skin-bodyBg outline-none text-skin-primary font-semibold py-4 px-7 rounded" type="text" />
+        <input className="bg-skin-inputBg outline-none border-2 border-borderPrimary text-skin-primary font-semibold py-4 px-7 rounded" type={props.type} />
     )
 }

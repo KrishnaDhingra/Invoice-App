@@ -25,7 +25,6 @@ function App() {
     }else{
       setPositionVal("-80vw")
     }
-    console.log("button")
   }
   return (
     <div 
