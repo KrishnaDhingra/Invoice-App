@@ -14,7 +14,6 @@ function App() {
     }else{
       setDark('dark')
     }
-    console.log(dark)
   }
 
   const [ positionVal, setPositionVal ] = useState('-80vw')
