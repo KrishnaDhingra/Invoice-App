@@ -11,6 +11,7 @@ export let Navbar = (props) => {
             </div>
 
             <div className="py-8 lg:w-full flex lg:flex-col items-center justify-center gap-8 pr-8 lg:pr-0">
+                
                 {props.theme === 'dark' ? <HiSun 
                     onClick={
                         props.ChangeTheme()

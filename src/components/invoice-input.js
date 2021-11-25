@@ -1,42 +1,9 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { SecondaryText, SecondaryBold, BigHeadings, Heading } from './basic-components.js'
-import { MainData, Data } from './data.js'
 
 
-export const InvoceInput = (props) => {
-
-    const [ id, setId ] = useState('')
-    const [ status, setStatus ] = useState('')
-    const [ total, setTotal ] = useState('')
-    const [ streetAddress, setStreetAddress ] = useState('')
-    const [ city, setCity ] = useState('')
-    const [ postCode, setPostCode ] = useState('')
-    const [ country, setCountry ] = useState('')
-    const [ clientName, setClientName ] = useState('')
-    const [ clientEmail, setClientEmail ] = useState('')
-    const [ streetAddress2, setStreetAddress2 ] = useState('')
-    const [ city2, setCity2 ] = useState('')
-    const [ postCode2, setPostCode2 ] = useState('')
-    const [ country2, setCountry2 ] = useState('')
-    const [ invoiceDate, setInvoiceDate ] = useState('')
-    const [ paymentTerms, setPaymentTerms ] = useState('')
-    const [ description, setDescription ] = useState('')
-    const [ itemName, setItemName ] = useState('')
-    const [ quantity, setQuantity ] = useState('')
-    const [ price, setPrice ] = useState('')
-
-    let PushData = () => {
-        let notId = ''
-        for(let i = 0; i<6; i++){
-            let num = Math.floor(Math.random() * 9 + 1)
-            console.log(num)
-            notId += num
-        }
-        setId(notId)
-        console.log(id)
-    }
-
+export const InvoiceInput = (props) => {
 
     const style = 
         'bg-skin-inputBg outline-none border-2 border-borderPrimary text-skin-primary font-semibold py-4 px-7 rounded'
@@ -69,10 +36,6 @@ export const InvoceInput = (props) => {
                 <SecondaryText text="Street Address"/>
 
                 <input 
-                    onChange={(e) => {
-                        setStreetAddress(e.target.value)
-                    }}
-
                     className={style}
                     type='text' 
                 />
@@ -85,10 +48,6 @@ export const InvoceInput = (props) => {
                     <SecondaryText text="City"/>      
 
                     <input 
-                        onChange={(e) => {
-                            setCity(e.target.value)
-                        }}
-
                         className={style}
                     /> 
 
@@ -96,10 +55,6 @@ export const InvoceInput = (props) => {
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Post Code"/>      
                     <input 
-                        onChange={(e) => {
-                            setPostCode(e.target.value)
-                        }}
-
                         className={style}
                         type='text' 
                     />
@@ -107,10 +62,6 @@ export const InvoceInput = (props) => {
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Country"/>      
                     <input 
-                        onChange={(e) => {
-                            setCountry(e.target.value)
-                        }}
-
                         className={style}
                         type='text' 
                     />
@@ -123,10 +74,6 @@ export const InvoceInput = (props) => {
             <div className="flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Client's Name"/>
                     <input 
-                        onChange={(e) => {
-                            setClientName(e.target.value)
-                        }}
-
                         className={style}
                         type='text' 
                     />
@@ -135,11 +82,7 @@ export const InvoceInput = (props) => {
             <div className="mt-1.5 flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Client's Email"/>
                 <input 
-                    onChange={(e) => {
-                        setClientEmail(e.target.value)
-                    }}
-
-                    className={style}
+                  className={style}
                     type='text' 
                 />
             </div>
@@ -147,11 +90,7 @@ export const InvoceInput = (props) => {
             <div className="mt-1.5 flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Street Address"/>
                 <input 
-                    onChange={(e) => {
-                        setStreetAddress2(e.target.value)
-                    }}
-
-                    className={style}
+                   className={style}
                     type='text' 
                 />
             </div>
@@ -163,10 +102,6 @@ export const InvoceInput = (props) => {
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="City"/>      
                     <input 
-                        onChange={(e) => {
-                            setCity2(e.target.value)
-                        }}
-
                         className={style}
                         type='text' 
                 />
@@ -174,10 +109,6 @@ export const InvoceInput = (props) => {
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Post Code"/>      
                     <input 
-                        onChange={(e) => {
-                            setPostCode2(e.target.value)
-                        }}
-
                         className={style}
                         type='text' 
                 />
@@ -185,10 +116,6 @@ export const InvoceInput = (props) => {
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Country"/>      
                     <input 
-                        onChange={(e) => {
-                            setCountry2(e.target.value)
-                        }}
-
                         className={style}
                         type='text' 
                 />
@@ -202,10 +129,6 @@ export const InvoceInput = (props) => {
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Invoice Date"/>      
                     <input 
-                        onChange={(e) => {
-                            setInvoiceDate(e.target.value)
-                        }}
-
                         className={style}
                         type='date' 
                 />
@@ -226,10 +149,6 @@ export const InvoceInput = (props) => {
             <div className="flex gap-2 flex-col w-11/12">
                 <SecondaryText text="Description"/>
                 <input 
-                    onChange={(e) => {
-                        setDescription(e.target.value)
-                    }}
-
                     className={style}
                     type='text' 
                 />
@@ -249,9 +168,6 @@ export const InvoceInput = (props) => {
 
                     <button 
                         className="rounded-full py-4 px-5 bg-skin-logoBg font-semibold text-sm text-white"
-
-                        onClick = {() => PushData()}
-
                     >Save and Send</button>
                 </div>
             </div>

@@ -1,11 +1,8 @@
 import React from 'react'
 import { SecondaryBold, SecondaryText, NameText, Heading, PendingText, PaidText, DraftText, PendingBox, PaidBox, DraftBox, RightArrow } from './basic-components.js'
 import { motion } from 'framer-motion'
-import { MainData } from './data.js'
 
 export const TodoBarContainer = (props) => {
-
-    let data = MainData
 
     const container = {
         hidden: { opacity: 1 },
@@ -29,7 +26,7 @@ export const TodoBarContainer = (props) => {
             animate="show"
         >
 
-            {data.map(element => {
+            {props.mapData.map(element => {
                 return (
 
                     <motion.div 

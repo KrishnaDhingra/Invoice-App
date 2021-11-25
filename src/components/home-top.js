@@ -14,6 +14,7 @@ export let HomeTop = (props) => {
                 <SecondaryBold text={'Filter by status'}/>
 
                 <div className="rounded-full p-2 flex gap-3 bg-skin-logoBg items-center justify-center pr-3" onClick={props.onSelect}>
+                    
                     <div className="h-8 w-8 rounded-full bg-white"></div>
                     <span className="tracking-wide text-xs text-white font-bold">New Invoice</span> 
                 </div>

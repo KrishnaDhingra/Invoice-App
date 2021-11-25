@@ -1,91 +1,87 @@
-export const Data = 
+export const Data = [
     {
-        id: '3aegae',
+        id: '$KKH324',
         status: 'paid',
-        total: '$362',
+        total: '$464',
 
         billFrom:{
-            streeetAddress: '',
-            city: '',
-            postCode: '',
-            country: ''
+            streeetAddress: '1',
+            city: '1',
+            postCode: '1',
+            country: '1'
         },
         billTo:{
-            clientName: 'Khushi Dhingra',
-            clientEmail: '',
-            streeetAddress: '',
-            city: '',
-            postCode: '',
-            country: '',
-            invoiceDate: 'Due 27-010-2021',
-            paymentTerms: '',
-            description: ''
+            clientName: 'Krishna',
+            clientEmail: '1',
+            streeetAddress: '1',
+            city: '1',
+            postCode: '1',
+            country: '1',
+            invoiceDate: 'Due 02 Nov 2021',
+            paymentTerms: '1',
+            description: '1'
        },
        items:{
-           itemName: '',
-           quantity: '',
-           price: ''
+           itemName: '1',
+           quantity: '1',
+           price: '1'
+       }
+    },
+    {
+        id: '$KKH324',
+        status: 'pending',
+        total: '$464',
+
+        billFrom:{
+            streeetAddress: '1',
+            city: '1',
+            postCode: '1',
+            country: '1'
+        },
+        billTo:{
+            clientName: 'Krishna',
+            clientEmail: '1',
+            streeetAddress: '1',
+            city: '1',
+            postCode: '1',
+            country: '1',
+            invoiceDate: 'Due 02 Nov 2021',
+            paymentTerms: '1',
+            description: '1'
+       },
+       items:{
+           itemName: '1',
+           quantity: '1',
+           price: '1'
+       }
+    }, 
+    {
+        id: '$KKH324',
+        status: 'draft',
+        total: '$464',
+
+        billFrom:{
+            streeetAddress: '1',
+            city: '1',
+            postCode: '1',
+            country: '1'
+        },
+        billTo:{
+            clientName: 'Krishna',
+            clientEmail: '1',
+            streeetAddress: '1',
+            city: '1',
+            postCode: '1',
+            country: '1',
+            invoiceDate: 'Due 02 Nov 2021',
+            paymentTerms: '1',
+            description: '1'
+       },
+       items:{
+           itemName: '1',
+           quantity: '1',
+           price: '1'
        }
     }  
-
-
-export const BlackData =     {
-    id: '',
-    status: '',
-    total: '',
-
-    billFrom:{
-        streeetAddress: '',
-        city: '',
-        postCode: '',
-        country: ''
-    },
-    billTo:{
-        clientName: '',
-        clientEmail: '',
-        streeetAddress: '',
-        city: '',
-        postCode: '',
-        country: '',
-        invoiceDate: '',
-        paymentTerms: '',
-        description: ''
-   },
-   items:{
-       itemName: '',
-       quantity: '',
-       price: ''
-   }
-}  
-
-
-export const MainData = [
-    {
-        id: '#XM9141',
-        status: 'pending',
-        total: '$268',
-
-        billFrom:{
-            streeetAddress: '',
-            city: '',
-            postCode: '',
-            country: ''
-        },
-        billTo:{
-            clientName: 'Krishna Dhingra',
-            clientEmail: '',
-            streeetAddress: '',
-            city: '',
-            postCode: '',
-            country: '',
-            invoiceDate: 'Due 20-09-2021',
-            paymentTerms: '',
-            description: ''
-       },
-       items:{
-           itemName: '',
-           quantity: '',
-           price: ''
-       }
-    }
 ]
+
