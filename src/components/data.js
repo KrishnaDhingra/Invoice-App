@@ -1,7 +1,7 @@
 export const Data = [
     {
         id: '$KKH324',
-        status: 'paid',
+        status: 'pending',
         total: '$464',
 
         billFrom:{
@@ -57,7 +57,7 @@ export const Data = [
     }, 
     {
         id: '$KKH324',
-        status: 'draft',
+        status: 'pending',
         total: '$464',
 
         billFrom:{
@@ -82,6 +82,6 @@ export const Data = [
            quantity: '1',
            price: '1'
        }
-    }  
+    } 
 ]
 

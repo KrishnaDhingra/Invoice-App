@@ -93,11 +93,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.home-inner-container{
+.home-inner-container, .invoice-detail-outer{
   width: calc(100vw - 7rem);
 }
 .home-center{
   width: 770px;
+}
+.invoice-detail-inner{
+  width: 620px;
 }
 input{
   font-size: 13px;
@@ -113,4 +116,8 @@ input:focus{
 .todo-bar:hover{
   border: 1.4px solid var(--color-logo-bg)
 }
+.edit-button{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 

@@ -62,3 +62,8 @@ export const RightArrow = () => {
         <img src={Arrow} alt="" className="h-2 w-2 transform -rotate-90" />
     )
 }
+export const LeftArrow = () => {
+    return (
+        <img src={Arrow} alt="" className="h-2 w-2 transform rotate-90" />
+    )
+}
