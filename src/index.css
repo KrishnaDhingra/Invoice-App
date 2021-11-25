@@ -119,5 +119,8 @@ input:focus{
 .edit-button{
   background-color: rgba(0, 0, 0, 0.2);
 }
+.detail-input-information-inner{
+  flex: 1;
+}
 
 

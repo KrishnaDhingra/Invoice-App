@@ -1,87 +1,87 @@
 export const Data = [
     {
-        id: '$KKH324',
+        id: '#KKH324',
         status: 'pending',
         total: '$464',
 
         billFrom:{
-            streeetAddress: '1',
-            city: '1',
-            postCode: '1',
-            country: '1'
+            streeetAddress: 'E-342 Tagore Garden',
+            city: 'New Delhi',
+            postCode: '110027',
+            country: 'India'
         },
         billTo:{
             clientName: 'Krishna',
-            clientEmail: '1',
-            streeetAddress: '1',
-            city: '1',
-            postCode: '1',
-            country: '1',
+            clientEmail: 'dkrishna1608@gmail.com',
+            streeetAddress: 'E-343 Tagore Garden',
+            city: 'New Delhi',
+            postCode: '110027',
+            country: 'India',
             invoiceDate: 'Due 02 Nov 2021',
-            paymentTerms: '1',
-            description: '1'
+            paymentTerms: 'Due 01 Nov 2021',
+            description: 'Pay me fast'
        },
        items:{
-           itemName: '1',
-           quantity: '1',
-           price: '1'
+           itemName: '',
+           quantity: '',
+           price: ''
        }
     },
     {
-        id: '$KKH324',
-        status: 'pending',
-        total: '$464',
+        id: '#KKH325',
+        status: 'paid',
+        total: '$374',
 
         billFrom:{
-            streeetAddress: '1',
-            city: '1',
-            postCode: '1',
-            country: '1'
+            streeetAddress: 'E-342 Tagore Garden',
+            city: 'New Delhi',
+            postCode: '110027',
+            country: 'India'
         },
         billTo:{
             clientName: 'Krishna',
-            clientEmail: '1',
-            streeetAddress: '1',
-            city: '1',
-            postCode: '1',
-            country: '1',
+            clientEmail: 'dkrishna1608@gmail.com',
+            streeetAddress: 'E-343 Tagore Garden',
+            city: 'New Delhi',
+            postCode: '110027',
+            country: 'India',
             invoiceDate: 'Due 02 Nov 2021',
-            paymentTerms: '1',
-            description: '1'
+            paymentTerms: 'Due 01 Nov 2021',
+            description: 'Pay me fast'
        },
        items:{
-           itemName: '1',
-           quantity: '1',
-           price: '1'
+           itemName: '',
+           quantity: '',
+           price: ''
        }
-    }, 
+    },
     {
-        id: '$KKH324',
-        status: 'pending',
-        total: '$464',
+        id: '#KKH326',
+        status: 'draft',
+        total: '$725',
 
         billFrom:{
-            streeetAddress: '1',
-            city: '1',
-            postCode: '1',
-            country: '1'
+            streeetAddress: 'E-342 Tagore Garden',
+            city: 'New Delhi',
+            postCode: '110027',
+            country: 'India'
         },
         billTo:{
             clientName: 'Krishna',
-            clientEmail: '1',
-            streeetAddress: '1',
-            city: '1',
-            postCode: '1',
-            country: '1',
+            clientEmail: 'dkrishna1608@gmail.com',
+            streeetAddress: 'E-343 Tagore Garden',
+            city: 'New Delhi',
+            postCode: '110027',
+            country: 'India',
             invoiceDate: 'Due 02 Nov 2021',
-            paymentTerms: '1',
-            description: '1'
+            paymentTerms: 'Due 01 Nov 2021',
+            description: 'Pay me fast'
        },
        items:{
-           itemName: '1',
-           quantity: '1',
-           price: '1'
+           itemName: '',
+           quantity: '',
+           price: ''
        }
-    } 
+    }
 ]
 

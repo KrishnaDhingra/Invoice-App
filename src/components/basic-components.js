@@ -21,6 +21,11 @@ export const BigHeadings = (props) => {
         <h1 className="font-bold text-3xl text-skin-primary">{props.text}</h1>
     )
 }
+export const SmallHeading = (props) => {
+    return (
+        <h1 className="font-bold text-sm text-skin-primary">{props.text}</h1>
+    )
+}
 export const Heading = (props) => {
     return (
         <h1 className="font-bold text-base text-skin-primary">{props.text}</h1>

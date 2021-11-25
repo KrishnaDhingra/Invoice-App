@@ -46,7 +46,7 @@ function App() {
 
       <InvoiceInput theme={dark} position={positionVal}/>
 
-      <div className="ml-auto flex justify-center home-inner-container hidden">
+      <div className="ml-auto flex justify-center home-inner-container">
         <div className="mt-32 lg:mt-20 home-center flex flex-col justify-center items-center">
 
 
@@ -63,7 +63,7 @@ function App() {
         </div>
       </div>
 
-      <div className="invoice-detail-outer ml-auto flex items-center w-full h-full flex-col">
+      <div className="invoice-detail-outer ml-auto flex items-center w-full h-full flex-col hidden">
         <DetailInput theme={dark}/>                
       </div>
 

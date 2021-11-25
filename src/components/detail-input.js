@@ -1,5 +1,5 @@
 import React from 'react'
-import { LeftArrow, SecondaryText, PendingBox, Heading } from './basic-components.js'
+import { LeftArrow, SecondaryText, PendingBox, Heading, SmallHeading } from './basic-components.js'
 import { motion } from 'framer-motion'
 
 export let DetailInput = (props) => {
@@ -20,7 +20,7 @@ export let DetailInput = (props) => {
 export let DetailInputControlBar = (props) => {
     return (
         <motion.div 
-            className={`theme-${props.theme} todo-bar rounded-lg w-full bg-skin-dataBar flex items-center justify-between px-6 py-6 mt-4`}
+            className={`theme-${props.theme} rounded-lg w-full bg-skin-dataBar flex items-center justify-between px-6 py-6 mt-4`}
         >
             <div className="flex self-stretch items-center">
                 <SecondaryText text={"Status"}/>
@@ -40,19 +40,55 @@ export let DetailInputControlBar = (props) => {
 export let DetailInputInformation = (props) => {
     return (
         <motion.div 
-            className={`theme-${props.theme} todo-bar rounded-lg w-full bg-skin-dataBar flex items-center justify-between px-6 py-6`}
+            className={`theme-${props.theme} rounded-lg w-full bg-skin-dataBar flex flex-col justify-center px-6 py-6 gap-6`}
         >
-            <div className="border-2 border-blue flex self-stretch w-full justify-between">
-                <div className="flex flex-col gap-2">
-                    <Heading text={"#KH2522"}/>
-                    <SecondaryText text={"Krishna"}/>
+            <div className="flex flex-col justify-between">
+
+                <div className="flex self-stretch w-full justify-between">
+                    <div className="flex flex-col gap-2">
+                        <Heading text={"#KH2522"}/>
+                        <SecondaryText text={"Krishna"}/>
+                    </div>
+                    <div className="flex flex-col items-end gap-1">
+                        <SecondaryText text={"E-342 Tagore Garden"}/>
+                        <SecondaryText text={"New Delhi"}/>
+                        <SecondaryText text={"India"}/>
+                        <SecondaryText text={"110027"}/>
+                    </div>
                 </div>
-                <div className="flex flex-col gap-2">
-                    <SecondaryText text={"Krishna"}/>
-                    <SecondaryText text={"Krishna"}/>
-                    <SecondaryText text={"Krishna"}/>
-                </div>
+                
             </div>
+
+            <div className="flex flex-col justify-between">
+
+                <div className="flex self-stretch w-full">
+                    <div className="detail-input-information-inner flex flex-col gap-2">
+                        <SecondaryText text={"Invoice Date"}/>
+                        <SmallHeading text={"03 Oct 2021"}/>
+                        <div className="mt-6"></div>
+                        <SecondaryText text={"Payment Due"}/>
+                        <SmallHeading text={"01 Oct 2021"}/>
+                    </div>
+
+                    <div className="detail-input-information-inner flex flex-col gap-1">
+                        <SecondaryText text={"Bill To"}/>
+                        <div className="my-1">
+                            <SmallHeading text={"Khushi Dhingra"}/>
+                        </div>
+                        <SecondaryText text={"E-343 Tagore Garden"}/>
+                        <SecondaryText text={"New Delhi"}/>
+                        <SecondaryText text={"India"}/>
+                        <SecondaryText text={"110027"}/>
+                    </div>
+                    
+                    <div className="detail-input-information-inner self-stretch flex flex-col gap-2">
+                        <SecondaryText text={"Sent To"}/>
+                        <SmallHeading text={"dkrishna1608@gmail.com"}/>
+                    </div>
+                </div>
+
+            </div>
+
         </motion.div> 
     )
 }
