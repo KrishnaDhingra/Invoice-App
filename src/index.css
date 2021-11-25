@@ -122,5 +122,8 @@ input:focus{
 .detail-input-information-inner{
   flex: 1;
 }
+.add-new-item{
+  background-color: rgba(83, 81, 81, 0.1);
+}
 
 

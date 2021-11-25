@@ -1,6 +1,7 @@
 import React from 'react'
 import { SecondaryBold, SecondaryText, NameText, Heading, PendingText, PaidText, DraftText, PendingBox, PaidBox, DraftBox, RightArrow } from './basic-components.js'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 export const TodoBarContainer = (props) => {
 
@@ -60,22 +61,27 @@ export const TodoBar = (props) => {
     }
 
     return (
-        <motion.div 
-            className={`theme-${props.theme} todo-bar rounded-lg w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4`}
+        <Link to={{pathname: `/invoice/${props.id}`, state:{id: props.id}}}>
 
-        >
-            <div className="flex gap-7">
-                <SecondaryBold text={props.id}/>
-                <SecondaryText text={props.dueDate}/>
-                <NameText text={props.name}/>
-            </div>
+            <motion.div 
+                onClick={() => console.log(props.id)}
+                className={`theme-${props.theme} todo-bar rounded-lg w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4`}
 
-            <div className="flex gap-5 items-center">
-                <Heading text={props.total}/>
-                {StatusBox}
-                <RightArrow/>
-            </div>
-        </motion.div>
+            >
+                <div className="flex gap-7">
+                    <SecondaryBold text={props.id}/>
+                    <SecondaryText text={props.dueDate}/>
+                    <NameText text={props.name}/>
+                </div>
+
+                <div className="flex gap-5 items-center">
+                    <Heading text={props.total}/>
+                    {StatusBox}
+                    <RightArrow/>
+                </div>
+            </motion.div>
+
+        </Link>
 
     )
 }
