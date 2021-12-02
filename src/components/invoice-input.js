@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { SecondaryText, SecondaryBold, BigHeadings, Heading } from './basic-components.js'
-import { Data } from './data.js'
-
 
 export const InvoiceInput = (props) => {
-
-    const [ data, setData ] = useState(Data)
 
     const [ streetAddress, setStreetAddress ] = useState('')
     const [ city, setCity ] = useState('')
@@ -56,9 +52,18 @@ export const InvoiceInput = (props) => {
                    price: ''
                }
         }
+        
+        try{
+            let prevData = JSON.parse(localStorage.getItem("data1")) ? JSON.parse(localStorage.getItem("data1")) : []
 
-        Data.push(newData)
-        console.log(Data)
+            prevData.push(newData)
+
+            localStorage.setItem("data1", JSON.stringify(prevData))
+            console.log(JSON.parse(localStorage.getItem("data1")))
+
+        } catch(e){
+            console.log(e.message)
+        }
     }
 
     const style = 

@@ -6,7 +6,6 @@ import { TodoBarContainer } from './components/todo-bar.js'
 import { DetailInput } from './components/detail-input.js'
 import { Data } from './components/data.js'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import './index.css'
 
 function App() {

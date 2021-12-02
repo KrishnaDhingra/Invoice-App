@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { SecondaryBold, SecondaryText, NameText, Heading, PendingText, PaidText, DraftText, PendingBox, PaidBox, DraftBox, RightArrow } from './basic-components.js'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 export const TodoBarContainer = (props) => {
 
+    const [ num, setNum ] = useState(0)
+    useEffect(() => {
+        setNum(num + 1)
+    }, num)
+    
     const container = {
         hidden: { opacity: 1 },
         show: {
@@ -27,7 +32,7 @@ export const TodoBarContainer = (props) => {
             animate="show"
         >
 
-            {props.mapData.map(element => {
+            {JSON.parse(localStorage.getItem("data1")) ? JSON.parse(localStorage.getItem("data1")).map(element => {
                 return (
 
                     <motion.div 
@@ -41,7 +46,7 @@ export const TodoBarContainer = (props) => {
                             status={element.status}/>
                     </motion.div>
                 )
-            })}
+            }) : null }
 
 
 
