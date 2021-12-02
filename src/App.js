@@ -4,13 +4,10 @@ import { HomeTop } from './components/home-top.js'
 import { InvoiceInput } from './components/invoice-input.js'
 import { TodoBarContainer } from './components/todo-bar.js'
 import { DetailInput } from './components/detail-input.js'
-import { Data } from './components/data.js'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import './index.css'
 
 function App() {
-
-  const [ data, setData ] = useState(Data)
 
   const [ dark, setDark ] = useState('dark')
 
@@ -31,22 +28,23 @@ function App() {
       setPositionVal("-80vw")
     }
   } 
+  let Close = () => {
+    if(positionVal === "0vw"){
+      setPositionVal("-80vw")
+    }
+  }
     return (
 
       <Router>
 
         <div 
           className={`theme-${dark} main-container overflow-y-scroll h-screen w-full bg-skin-bodyBg flex items-start`}   
-          onClick={() => {
-            if(positionVal === "0vw"){
-                setPositionVal("-80vw")
-              }
-            }}
+          onClick={() => Close()}
         >
           <Navbar ChangeTheme={() => ToggleTheme} theme={dark}/>
 
 
-          <InvoiceInput theme={dark} position={positionVal}/>
+          <InvoiceInput theme={dark} position={positionVal} closeFunc={Close}/>
 
           <div className="ml-auto flex justify-center home-inner-container">
             <div className="mt-32 lg:mt-20 home-center flex flex-col justify-center items-center">
@@ -60,7 +58,7 @@ function App() {
                 />
                 
 
-              <TodoBarContainer mapData={data} theme={dark}/>
+              <TodoBarContainer theme={dark}/>
 
             </div>
           </div>

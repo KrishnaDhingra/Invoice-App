@@ -4,6 +4,7 @@ import { SecondaryText, SecondaryBold, BigHeadings, Heading } from './basic-comp
 
 export const InvoiceInput = (props) => {
 
+    const [ id, setId ] = useState('')
     const [ streetAddress, setStreetAddress ] = useState('')
     const [ city, setCity ] = useState('')
     const [ postCode, setPostCode ] = useState('')
@@ -16,17 +17,35 @@ export const InvoiceInput = (props) => {
     const [ clientpostCode, setClientPostCode ] = useState('')
     const [ clientcountry, setClientCountry ] = useState('')
 
-    const [ invoiceDate, setInvoiceDate ] = useState('02 Nov 2021')
-    const [ paymentTerms, setPaymentTerms ] = useState('08 Nov 2021')
+    const [ invoiceDate, setInvoiceDate ] = useState('')
+    const [ paymentDate, setpaymentDate ] = useState('')
+    const [ addDays, setaddDays ] = useState(1)
 
     const [ description, setDescription ] = useState('')
 
+    const [ status, setStatus ] = useState('pending')
+
+    let generateId = () => {
+        const alphabets = 'abcdefghijklmnopqrstuvwxyz'
+        const numbers = '123456789'
+        let id = '#'
+
+        for(let i=0; i<2; i++){
+            id = id + alphabets.charAt(Math.random() * (alphabets.length - 1)).toUpperCase()
+        }
+        for(let i=0; i<4; i++){
+            id = id + numbers.charAt(Math.random() * (numbers.length - 1))
+        }
+        return id
+    }
     const UpdateData = () => {
+
+        let id = generateId()
 
         const newData = 
             {
-                id: '#KKH327',
-                status: 'draft',
+                id: id,
+                status: status,
                 total: '$725',
         
                 billFrom:{
@@ -36,14 +55,14 @@ export const InvoiceInput = (props) => {
                     country: country
                 },
                 billTo:{
-                    clientName: 'Krishna',
-                    clientEmail: 'dkrishna1608@gmail.com',
-                    streeetAddress: 'E-343 Tagore Garden',
-                    city: 'New Delhi',
-                    postCode: '110027',
-                    country: 'India',
-                    invoiceDate: 'Due 02 Nov 2021',
-                    paymentTerms: 'Due 01 Nov 2021',
+                    clientName: clientName,
+                    clientEmail: clientEmail,
+                    streeetAddress: clientStreetAddress,
+                    city: clientcity,
+                    postCode: clientpostCode,
+                    country: clientcountry,
+                    invoiceDate: invoiceDate,
+                    paymentDate: paymentDate,
                     description: description
                },
                items:{
@@ -59,7 +78,6 @@ export const InvoiceInput = (props) => {
             prevData.push(newData)
 
             localStorage.setItem("data1", JSON.stringify(prevData))
-            console.log(JSON.parse(localStorage.getItem("data1")))
 
         } catch(e){
             console.log(e.message)
@@ -204,17 +222,44 @@ export const InvoiceInput = (props) => {
                     <input 
                         className={style}
                         type='date' 
+                        onChange={(e) => {
+
+                            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                            "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+                        ];
+                            let chooseDate=new Date(e.target.value);
+
+                            let date = chooseDate.getDate()
+                            let year = chooseDate.getFullYear()
+                            let month = monthNames[chooseDate.getMonth()]
+
+                            setInvoiceDate(`Due ${date} ${month} ${year}`)
+
+                            chooseDate.setDate(chooseDate.getUTCDate()+addDays);
+
+
+                            let date1 = chooseDate.getDate()
+                            let year1 = chooseDate.getFullYear()
+                            let month1 = monthNames[chooseDate.getMonth()]
+
+                            setpaymentDate(`Due ${date1} ${month1} ${year1}`)
+
+                        }}
                 />
                 </div>
 
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Payment Terms"/>      
-                    <select className="bg-skin-inputBg text-skin-primary rounded px-6 py-4 pb-5 outline-none text-sm font-semibold pr-4" id="cars">
-                    <option value="volvo">Net 1 day</option>
-                    <option value="saab">Net 7 days</option>
-                    <option value="opel">Net 14 days</option>
-                    <option value="audi">Net 30 days</option>
-                </select>
+                    <select 
+                        onChange={(e) => {
+                            setaddDays(parseInt(e.target.value))
+                        }}
+                        className="bg-skin-inputBg text-skin-primary rounded px-6 py-4 pb-5 outline-none text-sm font-semibold pr-4" id="cars">
+                            <option value="1">Net 1 day</option>
+                            <option value="7">Net 7 days</option>
+                            <option value="14">Net 14 days</option>
+                            <option value="30">Net 30 days</option>
+                    </select>
                 </div>
 
             </div>
@@ -231,22 +276,28 @@ export const InvoiceInput = (props) => {
 
             <h1 className="mt-7 text-gray-500 font-semibold text-2xl">ItemList</h1>
 
-            <button className="py-4 add-new-item font-semibold text-sm rounded-full w-11/12 text-white">+ Add New Item</button>
+            <button className="py-4 add-new-item font-semibold text-xs rounded-full w-11/12 text-white">+ Add New Item</button>
 
             <div className="mt-8 mb-10 flex justify-between w-11/12">
 
-                <button className="rounded-full py-4 px-5 bg-gray-600 font-semibold text-sm text-white">Discard</button>
+                <button onClick={() => props.closeFunc()}className="rounded-full py-4 px-4 bg-gray-600 font-semibold text-xs text-white">Discard</button>
 
                 <div className="flex gap-3">
-                    <button className=" rounded-full py4 px-7 bg-gray-600 font-semibold text-sm text-white">Save as Draft</button>
+                    <button 
+                        onClick={() => {
+                            setStatus('draft')
+                            UpdateData()
+                            props.closeFunc()
+                        }}
+                        className=" rounded-full py-4 px-5 bg-gray-600 font-semibold text-xs text-white">Save as Draft</button>
 
                     <button 
-
                         onClick={() => {
-                            console.log(streetAddress, city, postCode, country, description)
+                            setStatus('pending')
                             UpdateData()
+                            props.closeFunc()
                         }}
-                        className="rounded-full py-4 px-5 bg-skin-logoBg font-semibold text-sm text-white"
+                        className="rounded-full py-4 px-4 bg-skin-logoBg font-semibold text-xs text-white"
                     >Save and Send</button>
                 </div>
             </div>

@@ -40,7 +40,7 @@ export const TodoBarContainer = (props) => {
                         <TodoBar 
                             theme={props.theme}
                             id={element.id} 
-                            dueDate={element.billTo.invoiceDate} 
+                            dueDate={element.billTo.paymentDate} 
                             name={element.billTo.clientName} 
                             total={element.total} 
                             status={element.status}/>
