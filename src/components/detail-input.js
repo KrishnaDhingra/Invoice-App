@@ -33,7 +33,15 @@ export let DetailInputControlBar = (props) => {
             }
         })
 
-        console.log(newData)
+        localStorage.setItem('data1', JSON.stringify(newData))
+    }
+    let deleteData = () => {
+        console.log(props.id)
+        let newData = JSON.parse(localStorage.getItem("data1"))
+        
+        newData = newData.filter(element => {
+            return element.id !== props.id
+        })
         localStorage.setItem('data1', JSON.stringify(newData))
     }
 
@@ -48,12 +56,15 @@ export let DetailInputControlBar = (props) => {
 
             <div className="flex gap-2 self-stretch items-center">
                 <EditButton/>
-                <DeleteButton/>
+                <button 
+                    className="py-4 bg-skin-danger font-semibold text-xs rounded-full w-24 text-white"
+                    onClick={() => deleteData()}
+                >Delete</button>
+
                 <button 
                     className="py-4 bg-skin-logoBg font-semibold text-xs rounded-full w-36 text-white"
                     onClick={() => {
                         updateStatus()
-                        console.log("Hello everyone")
                     }}
                 >Mark As Paid</button>
             </div>
@@ -125,15 +136,5 @@ export let DetailInputInformation = (props) => {
 export let EditButton = () => {
     return (
         <button className="edit-button py-4 font-semibold text-xs rounded-full w-20 text-white">Edit</button>
-    )
-}
-export let DeleteButton = () => {
-    return (
-        <button className="py-4 bg-skin-danger font-semibold text-xs rounded-full w-24 text-white">Delete</button>
-    )
-}
-export let MarkAsPaid = () => {
-    return (
-        <button className="py-4 bg-skin-logoBg font-semibold text-xs rounded-full w-36 text-white">Mark As Paid</button>
     )
 }
