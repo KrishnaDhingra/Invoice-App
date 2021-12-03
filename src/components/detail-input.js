@@ -5,10 +5,6 @@ import { motion } from 'framer-motion'
 
 export let DetailInput = (props) => {
 
-    console.log(props.location.state.id)
-    let data = JSON.parse(localStorage.getItem("data1")).filter(element => element.id === props.location.state.id)
-    data = data[0]
-
     return (
         <div className="invoice-detail-outer ml-auto flex items-center w-full h-full flex-col">
             <div className="invoice-detail-inner mt-20 flex gap-6 flex-col justify-center items-center">
@@ -18,14 +14,29 @@ export let DetailInput = (props) => {
                     <SecondaryText text={'Go back'}/>
                 </Link>
         
-                <DetailInputControlBar theme={props.theme}/>
-                <DetailInputInformation data={data} theme={props.theme}/>
+                <DetailInputControlBar id={props.location.state.id} theme={props.theme}/>
+                <DetailInputInformation id={props.location.state.id} theme={props.theme}/>
 
             </div>
         </div>
     )
 }
 export let DetailInputControlBar = (props) => {
+
+    let updateStatus = () => {
+
+        let newData = JSON.parse(localStorage.getItem("data1"))
+
+        newData.map(element => {
+            if(element.id === props.id){
+                element.status = 'paid'
+            }
+        })
+
+        console.log(newData)
+        localStorage.setItem('data1', JSON.stringify(newData))
+    }
+
     return (
         <motion.div 
             className={`rounded-lg w-full bg-skin-dataBar flex items-center justify-between px-6 py-6 mt-4`}
@@ -38,7 +49,13 @@ export let DetailInputControlBar = (props) => {
             <div className="flex gap-2 self-stretch items-center">
                 <EditButton/>
                 <DeleteButton/>
-                <MarkAsPaid/>
+                <button 
+                    className="py-4 bg-skin-logoBg font-semibold text-xs rounded-full w-36 text-white"
+                    onClick={() => {
+                        updateStatus()
+                        console.log("Hello everyone")
+                    }}
+                >Mark As Paid</button>
             </div>
 
 
@@ -46,6 +63,10 @@ export let DetailInputControlBar = (props) => {
     )
 }
 export let DetailInputInformation = (props) => {
+
+    let data = JSON.parse(localStorage.getItem("data1")).filter(element => element.id === props.id)
+    data = data[0]
+
     return (
         <motion.div 
             className={`rounded-lg w-full bg-skin-dataBar flex flex-col justify-center px-6 py-6 gap-6`}
@@ -54,14 +75,14 @@ export let DetailInputInformation = (props) => {
 
                 <div className="flex self-stretch w-full justify-between">
                     <div className="flex flex-col gap-2">
-                        <Heading text={props.data.id}/>
-                        <SecondaryText text={props.data.billTo.description}/>
+                        <Heading text={data.id}/>
+                        <SecondaryText text={data.billTo.description}/>
                     </div>
                     <div className="flex flex-col items-end gap-1">
-                        <SecondaryText text={props.data.billFrom.streetAddress}/>
-                        <SecondaryText text={props.data.billFrom.city}/>
-                        <SecondaryText text={props.data.billFrom.country}/>
-                        <SecondaryText text={props.data.billFrom.postCode}/>
+                        <SecondaryText text={data.billFrom.streetAddress}/>
+                        <SecondaryText text={data.billFrom.city}/>
+                        <SecondaryText text={data.billFrom.country}/>
+                        <SecondaryText text={data.billFrom.postCode}/>
                     </div>
                 </div>
                 
@@ -72,26 +93,26 @@ export let DetailInputInformation = (props) => {
                 <div className="flex self-stretch w-full">
                     <div className="detail-input-information-inner flex flex-col gap-2">
                         <SecondaryText text={"Invoice Date"}/>
-                        <SmallHeading text={props.data.billTo.invoiceDate}/>
+                        <SmallHeading text={data.billTo.invoiceDate}/>
                         <div className="mt-6"></div>
                         <SecondaryText text={"Payment Due"}/>
-                        <SmallHeading text={props.data.billTo.paymentDate}/>
+                        <SmallHeading text={data.billTo.paymentDate}/>
                     </div>
 
                     <div className="detail-input-information-inner flex flex-col gap-1">
                         <SecondaryText text={"Bill To"}/>
                         <div className="my-1">
-                            <SmallHeading text={props.data.billTo.clientName}/>
+                            <SmallHeading text={data.billTo.clientName}/>
                         </div>
-                        <SecondaryText text={props.data.billTo.streetAddress}/>
-                        <SecondaryText text={props.data.billTo.city}/>
-                        <SecondaryText text={props.data.billTo.country}/>
-                        <SecondaryText text={props.data.billTo.postCode}/>
+                        <SecondaryText text={data.billTo.streetAddress}/>
+                        <SecondaryText text={data.billTo.city}/>
+                        <SecondaryText text={data.billTo.country}/>
+                        <SecondaryText text={data.billTo.postCode}/>
                     </div>
                     
                     <div className="detail-input-information-inner self-stretch flex flex-col gap-2">
                         <SecondaryText text={"Sent To"}/>
-                        <SmallHeading text={props.data.billTo.clientEmail}/>
+                        <SmallHeading text={data.billTo.clientEmail}/>
                     </div>
                 </div>
 
