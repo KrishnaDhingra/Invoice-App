@@ -33,6 +33,26 @@ function App() {
       setPositionVal("-80vw")
     }
   }
+  
+  let ContainerElement = () => {
+    return (
+      <div className="ml-auto flex justify-center home-inner-container">
+        <div className="mt-32 lg:mt-20 home-center flex flex-col justify-center items-center">
+
+
+          <HomeTop onSelect={(event) => {
+            ChangePosition()
+            event.stopPropagation()
+          }}
+            theme={dark}
+            />
+
+          <TodoBarContainer/>
+
+        </div>
+      </div>
+    )
+  }
     return (
 
       <Router>
@@ -46,26 +66,8 @@ function App() {
 
           <InvoiceInput theme={dark} position={positionVal} closeFunc={Close}/>
 
-          <div className="ml-auto flex justify-center home-inner-container">
-            <div className="mt-32 lg:mt-20 home-center flex flex-col justify-center items-center">
-
-
-              <HomeTop onSelect={(event) => {
-                ChangePosition()
-                event.stopPropagation()
-              }}
-                theme={dark}
-                />
-                
-
-              <TodoBarContainer theme={dark}/>
-
-            </div>
-          </div>
-
-          <div className="invoice-detail-outer ml-auto flex items-center w-full h-full flex-col hidden">
-            <DetailInput theme={dark}/>                
-          </div>
+          <Route path="/" exact component={ContainerElement}/>
+          <Route path="/invoice" exact component={DetailInput}/>
 
         </div>
         

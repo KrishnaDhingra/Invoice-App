@@ -66,11 +66,11 @@ export const TodoBar = (props) => {
     }
 
     return (
-        <Link to={{pathname: `/invoice/${props.id}`, state:{id: props.id}}}>
+        <Link to={{pathname: `/invoice`, state:{id: props.id}}}>
 
             <motion.div 
                 onClick={() => console.log(props.id)}
-                className={`theme-${props.theme} todo-bar rounded-lg w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4`}
+                className={`todo-bar rounded-lg w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4`}
 
             >
                 <div className="flex gap-7">

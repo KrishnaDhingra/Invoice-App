@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { SecondaryText, SecondaryBold, BigHeadings, Heading } from './basic-components.js'
 
@@ -17,6 +17,7 @@ export const InvoiceInput = (props) => {
     const [ clientpostCode, setClientPostCode ] = useState('')
     const [ clientcountry, setClientCountry ] = useState('')
 
+    const [ shortInvoiceDate, setshortInvoiceDate ] = useState('')
     const [ invoiceDate, setInvoiceDate ] = useState('')
     const [ paymentDate, setpaymentDate ] = useState('')
     const [ addDays, setaddDays ] = useState(1)
@@ -24,6 +25,7 @@ export const InvoiceInput = (props) => {
     const [ description, setDescription ] = useState('')
 
     const [ status, setStatus ] = useState('pending')
+
 
     let generateId = () => {
         const alphabets = 'abcdefghijklmnopqrstuvwxyz'
@@ -228,6 +230,7 @@ export const InvoiceInput = (props) => {
                             "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
                         ];
                             let chooseDate=new Date(e.target.value);
+                            setshortInvoiceDate(e.target.value)
 
                             let date = chooseDate.getDate()
                             let year = chooseDate.getFullYear()
@@ -237,13 +240,11 @@ export const InvoiceInput = (props) => {
 
                             chooseDate.setDate(chooseDate.getUTCDate()+addDays);
 
-
                             let date1 = chooseDate.getDate()
                             let year1 = chooseDate.getFullYear()
                             let month1 = monthNames[chooseDate.getMonth()]
 
                             setpaymentDate(`Due ${date1} ${month1} ${year1}`)
-
                         }}
                 />
                 </div>
@@ -252,7 +253,28 @@ export const InvoiceInput = (props) => {
                     <SecondaryText text="Payment Terms"/>      
                     <select 
                         onChange={(e) => {
+
                             setaddDays(parseInt(e.target.value))
+                            
+                            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                            "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+                        ];
+                            let chooseDate=new Date(shortInvoiceDate);
+
+                            let date = chooseDate.getDate()
+                            let year = chooseDate.getFullYear()
+                            let month = monthNames[chooseDate.getMonth()]
+
+                            setInvoiceDate(`Due ${date} ${month} ${year}`)
+                            chooseDate.setDate(chooseDate.getUTCDate()+addDays);
+
+
+                            let date1 = chooseDate.getDate()
+                            let year1 = chooseDate.getFullYear()
+                            let month1 = monthNames[chooseDate.getMonth()]
+
+                            setpaymentDate(`Due ${date1} ${month1} ${year1}`)
+
                         }}
                         className="bg-skin-inputBg text-skin-primary rounded px-6 py-4 pb-5 outline-none text-sm font-semibold pr-4" id="cars">
                             <option value="1">Net 1 day</option>

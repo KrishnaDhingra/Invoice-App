@@ -7,7 +7,7 @@ export let HomeTop = (props) => {
             <div className="flex flex-col gap-2">
                 <BigHeadings text={'Invoices'}/>
 
-                <SecondaryText text={'There are 1 total invoice'}/>
+                <SecondaryText text={`There are ${JSON.parse(localStorage.getItem("data1")) ? JSON.parse(localStorage.getItem("data1")).length : 0} total invoice`}/>
             </div>
 
             <div className="flex gap-10 h-full items-center">

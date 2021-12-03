@@ -1,26 +1,30 @@
 import React from 'react'
 import { LeftArrow, SecondaryText, PendingBox, Heading, SmallHeading } from './basic-components.js'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 export let DetailInput = (props) => {
+
     return (
-        <div className="invoice-detail-inner mt-20 flex gap-6 flex-col justify-center items-center">
+        <div className="invoice-detail-outer ml-auto flex items-center w-full h-full flex-col">
+            <div className="invoice-detail-inner mt-20 flex gap-6 flex-col justify-center items-center">
 
-            <div className="flex gap-4 items-center w-full ">
-                <LeftArrow/>
-                <SecondaryText text={'Go back'}/>
+                <Link to="/" className="flex gap-4 items-center w-full">
+                    <LeftArrow/>
+                    <SecondaryText text={'Go back'}/>
+                </Link>
+        
+                <DetailInputControlBar theme={props.theme}/>
+                <DetailInputInformation theme={props.theme}/>
+
             </div>
-    
-            <DetailInputControlBar theme={props.theme}/>
-            <DetailInputInformation theme={props.theme}/>
-
         </div>
     )
 }
 export let DetailInputControlBar = (props) => {
     return (
         <motion.div 
-            className={`theme-${props.theme} rounded-lg w-full bg-skin-dataBar flex items-center justify-between px-6 py-6 mt-4`}
+            className={`rounded-lg w-full bg-skin-dataBar flex items-center justify-between px-6 py-6 mt-4`}
         >
             <div className="flex self-stretch items-center">
                 <SecondaryText text={"Status"}/>
@@ -40,7 +44,7 @@ export let DetailInputControlBar = (props) => {
 export let DetailInputInformation = (props) => {
     return (
         <motion.div 
-            className={`theme-${props.theme} rounded-lg w-full bg-skin-dataBar flex flex-col justify-center px-6 py-6 gap-6`}
+            className={`rounded-lg w-full bg-skin-dataBar flex flex-col justify-center px-6 py-6 gap-6`}
         >
             <div className="flex flex-col justify-between">
 
