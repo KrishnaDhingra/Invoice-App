@@ -5,6 +5,10 @@ import { motion } from 'framer-motion'
 
 export let DetailInput = (props) => {
 
+    console.log(props.location.state.id)
+    let data = JSON.parse(localStorage.getItem("data1")).filter(element => element.id === props.location.state.id)
+    data = data[0]
+
     return (
         <div className="invoice-detail-outer ml-auto flex items-center w-full h-full flex-col">
             <div className="invoice-detail-inner mt-20 flex gap-6 flex-col justify-center items-center">
@@ -15,7 +19,7 @@ export let DetailInput = (props) => {
                 </Link>
         
                 <DetailInputControlBar theme={props.theme}/>
-                <DetailInputInformation theme={props.theme}/>
+                <DetailInputInformation data={data} theme={props.theme}/>
 
             </div>
         </div>
@@ -50,14 +54,14 @@ export let DetailInputInformation = (props) => {
 
                 <div className="flex self-stretch w-full justify-between">
                     <div className="flex flex-col gap-2">
-                        <Heading text={"#KH2522"}/>
-                        <SecondaryText text={"Krishna"}/>
+                        <Heading text={props.data.id}/>
+                        <SecondaryText text={props.data.billTo.description}/>
                     </div>
                     <div className="flex flex-col items-end gap-1">
-                        <SecondaryText text={"E-342 Tagore Garden"}/>
-                        <SecondaryText text={"New Delhi"}/>
-                        <SecondaryText text={"India"}/>
-                        <SecondaryText text={"110027"}/>
+                        <SecondaryText text={props.data.billFrom.streetAddress}/>
+                        <SecondaryText text={props.data.billFrom.city}/>
+                        <SecondaryText text={props.data.billFrom.country}/>
+                        <SecondaryText text={props.data.billFrom.postCode}/>
                     </div>
                 </div>
                 
@@ -68,26 +72,26 @@ export let DetailInputInformation = (props) => {
                 <div className="flex self-stretch w-full">
                     <div className="detail-input-information-inner flex flex-col gap-2">
                         <SecondaryText text={"Invoice Date"}/>
-                        <SmallHeading text={"03 Oct 2021"}/>
+                        <SmallHeading text={props.data.billTo.invoiceDate}/>
                         <div className="mt-6"></div>
                         <SecondaryText text={"Payment Due"}/>
-                        <SmallHeading text={"01 Oct 2021"}/>
+                        <SmallHeading text={props.data.billTo.paymentDate}/>
                     </div>
 
                     <div className="detail-input-information-inner flex flex-col gap-1">
                         <SecondaryText text={"Bill To"}/>
                         <div className="my-1">
-                            <SmallHeading text={"Khushi Dhingra"}/>
+                            <SmallHeading text={props.data.billTo.clientName}/>
                         </div>
-                        <SecondaryText text={"E-343 Tagore Garden"}/>
-                        <SecondaryText text={"New Delhi"}/>
-                        <SecondaryText text={"India"}/>
-                        <SecondaryText text={"110027"}/>
+                        <SecondaryText text={props.data.billTo.streetAddress}/>
+                        <SecondaryText text={props.data.billTo.city}/>
+                        <SecondaryText text={props.data.billTo.country}/>
+                        <SecondaryText text={props.data.billTo.postCode}/>
                     </div>
                     
                     <div className="detail-input-information-inner self-stretch flex flex-col gap-2">
                         <SecondaryText text={"Sent To"}/>
-                        <SmallHeading text={"dkrishna1608@gmail.com"}/>
+                        <SmallHeading text={props.data.billTo.clientEmail}/>
                     </div>
                 </div>
 
