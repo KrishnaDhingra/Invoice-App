@@ -68,7 +68,9 @@ export const TodoBar = (props) => {
 
             >
                 <div className="flex gap-7">
-                    <SecondaryBold text={props.id}/>
+                    <div className="flex">
+                        <span className="text-skin-purple font-bold text-xs">#</span><span className="tracking-wide text-xs text-skin-primary font-bold">{props.id}</span>
+                    </div>
                     <SecondaryText text={props.dueDate}/>
                     <NameText text={props.name}/>
                 </div>

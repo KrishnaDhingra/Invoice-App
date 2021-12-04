@@ -116,7 +116,7 @@ export const InvoiceInput = (props) => {
     let generateId = () => {
         const alphabets = 'abcdefghijklmnopqrstuvwxyz'
         const numbers = '123456789'
-        let id = '#'
+        let id = ''
 
         for(let i=0; i<2; i++){
             id = id + alphabets.charAt(Math.random() * (alphabets.length - 1)).toUpperCase()
