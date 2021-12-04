@@ -1,5 +1,5 @@
 import React from 'react'
-import { LeftArrow, SecondaryText, PendingBox, Heading, SmallHeading } from './basic-components.js'
+import { LeftArrow, SecondaryText, PendingBox, DraftBox, PaidBox, Heading, SmallHeading } from './basic-components.js'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -36,7 +36,6 @@ export let DetailInputControlBar = (props) => {
         localStorage.setItem('data1', JSON.stringify(newData))
     }
     let deleteData = () => {
-        console.log(props.id)
         let newData = JSON.parse(localStorage.getItem("data1"))
         
         newData = newData.filter(element => {
@@ -45,13 +44,29 @@ export let DetailInputControlBar = (props) => {
         localStorage.setItem('data1', JSON.stringify(newData))
     }
 
+    let data = JSON.parse(localStorage.getItem("data1"))
+
+    data = data.filter(element => {
+        return element.id === props.id
+    })
+    data = data[0]
+
+    let statusBox
+
+    if(data.status === 'pending'){
+        statusBox = <PendingBox/>
+    }else if(data.status === 'draft'){
+        statusBox = <DraftBox/>
+    }else{
+        statusBox = <PaidBox/>
+    }
     return (
         <motion.div 
             className={`rounded-lg w-full bg-skin-dataBar flex items-center justify-between px-6 py-6 mt-4`}
         >
             <div className="flex self-stretch items-center">
                 <SecondaryText text={"Status"}/>
-                <PendingBox/>
+                {statusBox}
             </div>
 
             <div className="flex gap-2 self-stretch items-center">

@@ -23,23 +23,26 @@ export const InvoiceInput = (props) => {
     const [ addDays, setaddDays ] = useState(1)
 
     const [ description, setDescription ] = useState('')
-
     const [ status, setStatus ] = useState('pending')
+    
 
-
-    let generateId = () => {
-        const alphabets = 'abcdefghijklmnopqrstuvwxyz'
-        const numbers = '123456789'
-        let id = '#'
-
-        for(let i=0; i<2; i++){
-            id = id + alphabets.charAt(Math.random() * (alphabets.length - 1)).toUpperCase()
-        }
-        for(let i=0; i<4; i++){
-            id = id + numbers.charAt(Math.random() * (numbers.length - 1))
-        }
-        return id
-    }
+    const [ streetAddressColor, setStreetAddressColor ] = useState('borderPrimary')
+    const [ cityColor, setCityColor ] = useState('borderPrimary')
+    const [ postCodeColor, setPostCodeColor ] = useState('borderPrimary')
+    const [ countryColor, setCountryColor ] = useState('borderPrimary')
+    
+    const [ clientNameColor, setClientNameColor ] = useState('borderPrimary')
+    const [ clientEmailColor, setClientEmailColor ] = useState('borderPrimary') 
+    const [ clientStreetAddressColor, setClientStreetAddressColor ] = useState('borderPrimary') 
+    const [ clientcityColor, setClientCityColor ] = useState('borderPrimary')
+    const [ clientpostCodeColor, setClientPostCodeColor ] = useState('borderPrimary')
+    const [ clientcountryColor, setClientCountryColor ] = useState('borderPrimary')
+    
+    const [ invoiceDateColor, setInvoiceDateColor ] = useState('borderPrimary')
+    const [ paymentDateColor, setpaymentDateColor ] = useState('borderPrimary')
+    
+    const [ descriptionColor, setDescriptionColor ] = useState('borderPrimary')
+    
     const UpdateData = () => {
 
         let id = generateId()
@@ -81,15 +84,51 @@ export const InvoiceInput = (props) => {
 
             localStorage.setItem("data1", JSON.stringify(prevData))
 
+            props.closeFunc()
+
         } catch(e){
             console.log(e.message)
         }
     }
 
-    const style = 
-        'bg-skin-inputBg outline-none border-2 border-borderPrimary text-skin-primary font-semibold py-4 px-7 rounded'
+    let validateData = () => {
 
+        let colorArray = [streetAddressColor, cityColor, postCodeColor, countryColor, clientNameColor, clientEmailColor, clientStreetAddressColor, clientcityColor, clientpostCodeColor, clientcountryColor, invoiceDateColor, paymentDateColor, descriptionColor]
 
+        let dataArray = [[streetAddress, setStreetAddressColor], [city, setCityColor], [postCode, setPostCodeColor], [country, setCountryColor], [clientName, setClientNameColor], [clientEmail, setClientEmailColor], [clientStreetAddress, setClientStreetAddressColor], [clientcity, setClientCityColor], [clientpostCode, setClientPostCodeColor], [clientcountry, setClientCountryColor], [invoiceDate, setInvoiceDateColor], [paymentDate, setpaymentDateColor], [description, setDescriptionColor]]
+
+        dataArray.map(element => {
+            if(element[0] === ''){
+                element[1]('red-500')
+            }else{
+                element[1]('borderPrimary')
+            }
+        })
+        let final = colorArray.filter(element => {
+            return element === 'red-500'
+        })
+        if(final.length == 0){
+            UpdateData()
+        }else{
+            console.log("not eligible")
+        }
+    }
+    let generateId = () => {
+        const alphabets = 'abcdefghijklmnopqrstuvwxyz'
+        const numbers = '123456789'
+        let id = '#'
+
+        for(let i=0; i<2; i++){
+            id = id + alphabets.charAt(Math.random() * (alphabets.length - 1)).toUpperCase()
+        }
+        for(let i=0; i<4; i++){
+            id = id + numbers.charAt(Math.random() * (numbers.length - 1))
+        }
+        return id
+    }
+    const style = (color) => {
+        return `bg-skin-inputBg outline-none border-2 border-${color} text-skin-primary font-semibold py-4 px-7 rounded`
+    }
     return(
         <motion.div 
             onClick={(event) => {
@@ -120,7 +159,7 @@ export const InvoiceInput = (props) => {
                     onChange={(e) => {
                         setStreetAddress(e.target.value)
                     }}
-                    className={style}
+                    className={style(streetAddressColor)}
                     type='text' 
                 />
 
@@ -133,7 +172,7 @@ export const InvoiceInput = (props) => {
 
                     <input 
                         onChange={(e) => setCity(e.target.value)}
-                        className={style}
+                        className={style(cityColor)}
                     /> 
 
                 </div>
@@ -141,7 +180,7 @@ export const InvoiceInput = (props) => {
                     <SecondaryText text="Post Code"/>      
                     <input 
                         onChange={(e) => setPostCode(e.target.value)}
-                        className={style}
+                        className={style(postCodeColor)}
                         type='text' 
                     />
                 </div>
@@ -149,7 +188,7 @@ export const InvoiceInput = (props) => {
                     <SecondaryText text="Country"/>      
                     <input 
                         onChange={(e) => setCountry(e.target.value)}
-                        className={style}
+                        className={style(countryColor)}
                         type='text' 
                     />
                 </div>
@@ -162,7 +201,7 @@ export const InvoiceInput = (props) => {
                 <SecondaryText text="Client's Name"/>
                     <input 
                         onChange={(e) => setClientName(e.target.value)}
-                        className={style}
+                        className={style(clientNameColor)}
                         type='text' 
                     />
             </div>
@@ -171,7 +210,7 @@ export const InvoiceInput = (props) => {
                 <SecondaryText text="Client's Email"/>
                 <input 
                     onChange={(e) => setClientEmail(e.target.value)}
-                  className={style}
+                  className={style(clientEmailColor)}
                     type='text' 
                 />
             </div>
@@ -180,7 +219,7 @@ export const InvoiceInput = (props) => {
                 <SecondaryText text="Street Address"/>
                 <input 
                     onChange={(e) => setClientStreetAddress(e.target.value)}
-                   className={style}
+                   className={style(clientStreetAddressColor)}
                     type='text' 
                 />
             </div>
@@ -193,7 +232,7 @@ export const InvoiceInput = (props) => {
                     <SecondaryText text="City"/>      
                     <input 
                         onChange={(e) => setClientCity(e.target.value)}
-                        className={style}
+                        className={style(clientcityColor)}
                         type='text' 
                 />
                 </div>
@@ -201,7 +240,7 @@ export const InvoiceInput = (props) => {
                     <SecondaryText text="Post Code"/>      
                     <input 
                         onChange={(e) => setClientPostCode(e.target.value)}
-                        className={style}
+                        className={style(clientpostCodeColor)}
                         type='text' 
                 />
                 </div>
@@ -209,7 +248,7 @@ export const InvoiceInput = (props) => {
                     <SecondaryText text="Country"/>      
                     <input 
                         onChange={(e) => setClientCountry(e.target.value)}
-                        className={style}
+                        className={style(clientcountryColor)}
                         type='text' 
                 />
                 </div>
@@ -222,7 +261,7 @@ export const InvoiceInput = (props) => {
                 <div className="flex flex-col gap-2">
                     <SecondaryText text="Invoice Date"/>      
                     <input 
-                        className={style}
+                        className={style(invoiceDateColor)}
                         type='date' 
                         onChange={(e) => {
 
@@ -290,7 +329,7 @@ export const InvoiceInput = (props) => {
                 <SecondaryText text="Description"/>
                 <input 
                     onChange={(e) => setDescription(e.target.value)}
-                    className={style}
+                    className={style(descriptionColor)}
                     type='text' 
                 />
 
@@ -308,16 +347,14 @@ export const InvoiceInput = (props) => {
                     <button 
                         onClick={() => {
                             setStatus('draft')
-                            UpdateData()
-                            props.closeFunc()
+                            validateData()
                         }}
                         className=" rounded-full py-4 px-5 bg-gray-600 font-semibold text-xs text-white">Save as Draft</button>
 
                     <button 
                         onClick={() => {
                             setStatus('pending')
-                            UpdateData()
-                            props.closeFunc()
+                            validateData()
                         }}
                         className="rounded-full py-4 px-4 bg-skin-logoBg font-semibold text-xs text-white"
                     >Save and Send</button>

@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom'
 
 export const TodoBarContainer = (props) => {
 
-    const [ num, setNum ] = useState(0)
-    useEffect(() => {
-        setNum(num + 1)
-    }, num)
-    
     const container = {
         hidden: { opacity: 1 },
         show: {
@@ -69,7 +64,6 @@ export const TodoBar = (props) => {
         <Link to={{pathname: `/invoice`, state:{id: props.id}}}>
 
             <motion.div 
-                onClick={() => console.log(props.id)}
                 className={`todo-bar rounded-lg w-full self-stretch bg-skin-dataBar flex items-center justify-between px-6 py-4`}
 
             >
