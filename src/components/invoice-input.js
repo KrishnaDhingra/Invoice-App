@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { SecondaryText, SecondaryBold, BigHeadings, Heading } from './basic-components.js'
+import updateData from './updateData.js'
 
 export const InvoiceInput = (props) => {
 
@@ -43,60 +44,12 @@ export const InvoiceInput = (props) => {
     
     const [ descriptionColor, setDescriptionColor ] = useState('borderPrimary')
     
-    const UpdateData = () => {
-
-        let id = generateId()
-
-        const newData = 
-            {
-                id: id,
-                status: status,
-                total: '$725',
-        
-                billFrom:{
-                    streeetAddress: streetAddress,
-                    city: city,
-                    postCode: postCode,
-                    country: country
-                },
-                billTo:{
-                    clientName: clientName,
-                    clientEmail: clientEmail,
-                    streeetAddress: clientStreetAddress,
-                    city: clientcity,
-                    postCode: clientpostCode,
-                    country: clientcountry,
-                    invoiceDate: invoiceDate,
-                    paymentDate: paymentDate,
-                    description: description
-               },
-               items:{
-                   itemName: '',
-                   quantity: '',
-                   price: ''
-               }
-        }
-        
-        try{
-            let prevData = JSON.parse(localStorage.getItem("data1")) ? JSON.parse(localStorage.getItem("data1")) : []
-
-            prevData.push(newData)
-
-            localStorage.setItem("data1", JSON.stringify(prevData))
-
-            props.closeFunc()
-
-        } catch(e){
-            console.log(e.message)
-        }
-    }
-
     let validateData = () => {
-
+        
         let colorArray = [streetAddressColor, cityColor, postCodeColor, countryColor, clientNameColor, clientEmailColor, clientStreetAddressColor, clientcityColor, clientpostCodeColor, clientcountryColor, invoiceDateColor, paymentDateColor, descriptionColor]
 
         let dataArray = [[streetAddress, setStreetAddressColor], [city, setCityColor], [postCode, setPostCodeColor], [country, setCountryColor], [clientName, setClientNameColor], [clientEmail, setClientEmailColor], [clientStreetAddress, setClientStreetAddressColor], [clientcity, setClientCityColor], [clientpostCode, setClientPostCodeColor], [clientcountry, setClientCountryColor], [invoiceDate, setInvoiceDateColor], [paymentDate, setpaymentDateColor], [description, setDescriptionColor]]
-
+        
         dataArray.map(element => {
             if(element[0] === ''){
                 element[1]('red-500')
@@ -108,23 +61,12 @@ export const InvoiceInput = (props) => {
             return element === 'red-500'
         })
         if(final.length == 0){
-            UpdateData()
+            updateData(status, streetAddress, city, postCode, country, clientName, clientEmail, clientStreetAddress, clientcity, clientpostCode, clientcountry, invoiceDate, paymentDate, description)
+
+            props.closeFunc()
         }else{
             console.log("not eligible")
         }
-    }
-    let generateId = () => {
-        const alphabets = 'abcdefghijklmnopqrstuvwxyz'
-        const numbers = '123456789'
-        let id = ''
-
-        for(let i=0; i<2; i++){
-            id = id + alphabets.charAt(Math.random() * (alphabets.length - 1)).toUpperCase()
-        }
-        for(let i=0; i<4; i++){
-            id = id + numbers.charAt(Math.random() * (numbers.length - 1))
-        }
-        return id
     }
     const style = (color) => {
         return `bg-skin-inputBg outline-none border-2 border-${color} text-skin-primary font-semibold py-4 px-7 rounded`
